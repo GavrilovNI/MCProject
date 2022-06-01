@@ -1,0 +1,45 @@
+﻿@page
+@model MCProject.Pages.Account.LoginModel
+@{
+}
+
+<div class="container border" style="padding:20px">
+	<form method="post">
+		<div class="text-danger" asp-validation-summary="ModelOnly" />
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="Credentials.Email"></label>
+			</div>
+			<div class="col">
+				<input class="form-control" type="email" asp-for="Credentials.Email" />
+			</div>
+			<span class="text-danger" asp-validation-for="Credentials.Email"></span>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="Credentials.Password"></label>
+			</div>
+			<div class="col">
+				<input class="form-control" type="password" asp-for="Credentials.Password" />
+			</div>
+			<span class="text-danger" asp-validation-for="Credentials.Password"></span>
+		</div>
+		<div class="form-group mb-2 row">
+			<div class="col-2">
+				<label class="form-check-label" asp-for="Credentials.RememberMe"></label>
+			</div>
+			<div class="col">
+				<input class="form-check-input" type="checkbox" asp-for="Credentials.RememberMe" />
+			</div>
+		</div>
+		@if(Model.Credentials?.Error != null)
+		{
+			<span class="error text-danger">@Model.Credentials.Error</span>
+		}
+		<div class="form-group row">
+			<div class="col-1">
+				<input type="submit" class="btn btn-primary" value="Login" />
+			</div>
+		</div>
+	</form>
+</div>
